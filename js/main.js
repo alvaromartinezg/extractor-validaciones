@@ -17,9 +17,10 @@ const ui = {
   // blocks
   btnProcessBlocks: document.getElementById("btnProcessBlocks"),
   btnFilterBlocks: document.getElementById("btnFilterBlocks"),
-  filtroSite: document.getElementById("filtroSite"),
-  filtroEnlace: document.getElementById("filtroEnlace"),
-  busquedaGeneral: document.getElementById("busquedaGeneral"),
+  filter1: document.getElementById("Filter1"),
+  filter2: document.getElementById("Filter2"),
+  filter3: document.getElementById("Filter3"),
+
   blocksResult: document.getElementById("blocksResult"),
   blocksCount: document.getElementById("blocksCount"),
 
@@ -101,7 +102,7 @@ ui.btnProcessBlocks.addEventListener("click", () => {
     bloquesGlobales = parseBlocksFromFiles(filesStore);
     ui.blocksCount.textContent = `Bloques: ${bloquesGlobales.length}`;
     // Render inicial: todos
-    renderBlocks(filterBlocks(bloquesGlobales, { filtroSite: "", filtroEnlace: "", busqueda: "" }));
+    renderBlocks(filterBlocks(bloquesGlobales, { f1: "", f2: "", f3: "" }));
   } finally {
     setLoading(false);
   }
@@ -114,9 +115,9 @@ ui.btnFilterBlocks.addEventListener("click", () => {
   }
 
   const matches = filterBlocks(bloquesGlobales, {
-    filtroSite: ui.filtroSite.value,
-    filtroEnlace: ui.filtroEnlace.value,
-    busqueda: ui.busquedaGeneral.value
+  f1: ui.filter1.value,
+  f2: ui.filter2.value,
+  f3: ui.filter3.value
   });
   renderBlocks(matches);
 });
