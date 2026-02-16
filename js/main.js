@@ -59,7 +59,7 @@ ui.tabButtons.forEach(btn => btn.addEventListener("click", () => switchTab(btn.d
 ui.btnLoad.addEventListener("click", async () => {
   const files = ui.fileInput.files;
   if (!files || !files.length) {
-    alert("Selecciona uno o más archivos TXT");
+    alert("Select 1 or more TXT");
     return;
   }
 
@@ -82,8 +82,8 @@ ui.btnLoad.addEventListener("click", async () => {
 
   } catch (err) {
     console.error(err);
-    setStatus("Error cargando archivos", false);
-    alert("Ocurrió un error al leer los archivos. Revisa consola.");
+    setStatus("Error loading files", false);
+    alert("Error loading files, review console.");
   } finally {
     setLoading(false);
     setProgress(100);
@@ -186,5 +186,5 @@ function escapeHtml(str) {
 }
 
 // Estado inicial
-setStatus("Sin archivos", true);
+setStatus("No files", true);
 switchTab("tabBlocks");
