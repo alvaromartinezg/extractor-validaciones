@@ -69,7 +69,7 @@ ui.btnLoad.addEventListener("click", async () => {
 
   try {
     filesStore = await readFiles(Array.from(files), pct => setProgress(pct));
-    setStatus(`Cargados: ${filesStore.length} archivo(s)`, true);
+    setStatus(`Loaded: ${filesStore.length} file(s)`, true);
 
     // Reset módulos
     bloquesGlobales = [];
