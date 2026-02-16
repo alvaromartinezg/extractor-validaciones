@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TXT Tools — Bloques + Búsqueda Total</title>
+
+  <!-- Evitar cache -->
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <script type="module" src="js/main.js"></script>
+</head>
+<body>
+  <div class="page">
+    <section class="hero">
+      <!-- Si no tienes logo, puedes borrar este img -->
+      <img class="logo" src="img/bitel_logo.png" alt="Bitel logo" onerror="this.style.display='none'">
+      <h1>TXT Tools</h1>
+      <p>Extractor de bloques (NEW SITE) + Buscador tipo Notepad++ en una sola página</p>
+    </section>
+
+    <div class="card">
+      <div class="row">
+        <div class="pill badge">
+          <b>1)</b> Carga tus TXT
+          <span class="muted small">(&nbsp;Se comparten para ambos módulos&nbsp;)</span>
+        </div>
+        <input type="file" id="fileInput" accept=".txt" multiple />
+        <button class="btn accent" id="btnLoad">Cargar</button>
+
+        <div class="pill">
+          <span id="statusText" class="muted">Sin archivos</span>
+        </div>
+      </div>
+
+      <div class="progress" style="margin-top:10px;">
+        <div id="progressBar" class="barline"></div>
+      </div>
+
+      <div class="tabs">
+        <button class="tabbtn active" data-tab="tabBlocks">Bloques (NEW SITE)</button>
+        <button class="tabbtn" data-tab="tabSearch">Búsqueda Total</button>
+      </div>
+    </div>
+
+    <!-- TAB 1: BLOQUES -->
+    <div id="tabBlocks" class="card">
+      <h2 style="margin:8px 0 12px;">Extractor + Buscador de Bloques</h2>
+
+      <div class="row">
+        <div class="pill"><b>2)</b> Procesar bloques</div>
+        <button class="btn" id="btnProcessBlocks">Procesar BLOQUES</button>
+        <span class="hint">Detecta bloques que inician con <b>1) NEW SITE:</b> y corta al último ítem numerado.</span>
+      </div>
+
+      <hr style="border:0;border-top:1px solid rgba(0,0,0,.08);margin:14px 0;">
+
+      <div class="row">
+        <div class="pill"><b>3)</b> Filtros</div>
+        <input type="text" id="filtroSite" placeholder="Filtro NEW SITE" />
+        <input type="text" id="filtroEnlace" placeholder="Filtro ENLACE" />
+        <input type="text" id="busquedaGeneral" placeholder="Búsqueda general" />
+        <button class="btn accent" id="btnFilterBlocks">Aplicar</button>
+        <span id="blocksCount" class="pill muted">Bloques: 0</span>
+      </div>
+
+      <div id="blocksResult" style="margin-top:12px;"></div>
+    </div>
+
+    <!-- TAB 2: BUSQUEDA TOTAL -->
+    <div id="tabSearch" class="card hidden">
+      <h2 style="margin:8px 0 12px;">Buscador Avanzado tipo Notepad++</h2>
+
+      <div class="row">
+        <div class="pill"><b>2)</b> Palabras clave</div>
+        <input type="text" id="palabras" style="flex:1;min-width:260px;" placeholder="Palabras (máx 5) separadas por coma" />
+        <button class="btn accent" id="btnSearch">Buscar</button>
+        <span class="hint">Busca ventanas de 10 líneas que contengan <b>todas</b> las palabras.</span>
+      </div>
+
+      <div class="split" style="margin-top:12px;">
+        <div class="results" id="resultados"></div>
+        <div class="preview">
+          <div class="pill" id="tituloPreview">—</div>
+          <pre id="textoPreview"></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="loadingOverlay">
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <div class="loader"></div>
+      <div class="loader-text">Procesando…</div>
+    </div>
+  </div>
+</body>
+</html>
