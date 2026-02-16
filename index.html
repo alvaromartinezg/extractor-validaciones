@@ -22,7 +22,7 @@
     </section>
 
     <div class="card">
-      <div class="row">
+      <div class="row-center">
         <input type="file" id="fileInput" accept=".txt" multiple />
         <button class="btn accent" id="btnLoad">Cargar</button>
 
@@ -36,24 +36,24 @@
       </div>
 
       <div class="tabs">
-        <button class="tabbtn active" data-tab="tabBlocks">Bloques (NEW SITE)</button>
-        <button class="tabbtn" data-tab="tabSearch">Búsqueda Total</button>
+        <button class="tabbtn active" data-tab="tabBlocks">Validation finder (Recommended)</button>
+        <button class="tabbtn" data-tab="tabSearch">General lookup</button>
       </div>
     </div>
 
     <!-- TAB 1: BLOQUES -->
     <div id="tabBlocks" class="card">
-      <h2 style="margin:8px 0 12px;">Extractor + Buscador de Bloques</h2>
+      <h2 style="margin:8px 0 12px;">Extract + validation finder</h2>
 
       <div class="row">
-        <div class="pill"><b>2)</b> Procesar bloques</div>
-        <button class="btn" id="btnProcessBlocks">Procesar BLOQUES</button>
+        <div class="pill"><b>2)</b> Process</div>
+        <button class="btn" id="btnProcessBlocks">Block processor</button>
       </div>
 
       <hr style="border:0;border-top:1px solid rgba(0,0,0,.08);margin:14px 0;">
 
       <div class="row">
-        <div class="pill"><b>3)</b> Filtros</div>
+        <div class="pill"><b>3)</b> Filters</div>
         <input type="text" id="filtroSite" placeholder="Filtro NEW SITE" />
         <input type="text" id="filtroEnlace" placeholder="Filtro ENLACE" />
         <input type="text" id="busquedaGeneral" placeholder="Búsqueda general" />
