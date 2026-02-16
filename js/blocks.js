@@ -1,6 +1,3 @@
-// blocks.js
-// Lógica basada en BloquesNotas.html (Extractor + Buscador de Bloques) con leves ajustes para modularizar.
-
 export function parseBlocksFromFiles(filesStore) {
   const bloques = [];
 
