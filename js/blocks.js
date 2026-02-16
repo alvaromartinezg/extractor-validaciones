@@ -51,25 +51,26 @@ export function parseBlocksFromFiles(filesStore) {
   return bloques;
 }
 
-export function filterBlocks(bloquesGlobales, { filtroSite, filtroEnlace, busqueda }) {
-  const fs = (filtroSite || "").toLowerCase();
-  const fe = (filtroEnlace || "").toLowerCase();
-  const bg = (busqueda || "").toLowerCase();
+export function filterBlocks(bloquesGlobales, { f1, f2, f3 }) {
+  const F1 = (f1 || "").toLowerCase().trim();
+  const F2 = (f2 || "").toLowerCase().trim();
+  const F3 = (f3 || "").toLowerCase().trim();
 
   const out = [];
   for (let i = 0; i < bloquesGlobales.length; i++) {
     const bloque = bloquesGlobales[i];
     const texto = bloque.toLowerCase();
 
-    let mostrar = true;
-    if (fs && !texto.includes(fs)) mostrar = false;
-    if (fe && !texto.includes(fe)) mostrar = false;
-    if (bg && !texto.includes(bg)) mostrar = false;
+    let ok = true;
+    if (F1 && !texto.includes(F1)) ok = false;
+    if (F2 && !texto.includes(F2)) ok = false;
+    if (F3 && !texto.includes(F3)) ok = false;
 
-    if (mostrar) out.push({ index: i, bloque });
+    if (ok) out.push({ index: i, bloque });
   }
   return out;
 }
+
 
 function _esChat(texto) {
   return /^\[\d{1,2}\/\d{1,2}\/\d{2,4}/.test(texto);
