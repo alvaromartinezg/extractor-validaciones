@@ -55,6 +55,22 @@ body{
   margin:0 auto 18px; padding:16px;
 }
 .row{ display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+/* Centrar selector de archivos + botón cargar */
+.row-center {
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+/* Ajuste visual del input file */
+.row-center input[type="file"] {
+  max-width: 260px;
+}
+
+/* Mantener pill alineado */
+.row-center .pill {
+  margin-left: 0;
+}
 
 .pill{
   background:#eef2f5; padding:6px 10px; border-radius:999px;
